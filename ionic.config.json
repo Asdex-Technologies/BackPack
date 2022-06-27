@@ -1,0 +1,7 @@
+{
+  "name": "BackPack",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
