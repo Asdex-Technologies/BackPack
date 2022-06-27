@@ -8,14 +8,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  <h1 class="ion-text-center">Estás en {{folder}}</h1>
+  <ion-card *ngIf="folder == 'Home'">
+    <ion-card-content>
+      <h1>
+        Hola Usuario.
+      </h1>
+      <p>
+        ¿Listo para estudiar?
+      </p>
+      <ion-list>
+        <ion-item *ngFor="let subject of subjects">
+          <ion-label (click)="goTo(subject.title)">
+            {{subject.title}}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

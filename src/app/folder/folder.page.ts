@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { MateriasService } from '../services/materias.service';
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -8,11 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FolderPage implements OnInit {
   public folder: string;
-
-  constructor(private activatedRoute: ActivatedRoute) { }
+  subjects = this.materias.appPages;
+  constructor(private activatedRoute: ActivatedRoute, private materias: MateriasService, private router: Router) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
+  }
+  goTo(url: string){
+    this.router.navigateByUrl('/folder/'+url);
   }
 
 }
