@@ -9,8 +9,6 @@
 
 <ion-content [fullscreen]="true">
 
-
-  <h1 class="ion-text-center">Estás en {{folder}}</h1>
   <ion-card *ngIf="folder == 'Home'">
     <ion-card-content>
       <h1>
@@ -33,4 +31,21 @@
       </ion-fab>
     </ion-card-content>
   </ion-card>
+
+  <!--Para tus notas :D-->
+
+  <ion-card *ngIf="folder != 'Home'">
+    <ion-card-content>
+      <h1 class="ion-text-center">Notas de {{folder}}</h1>
+      <ion-item *ngFor="let topic of topics">
+        <ion-label>{{topic.topic}}</ion-label>
+      </ion-item>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
